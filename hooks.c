@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bpleutin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bpleutin <bpleutin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 17:31:35 by bpleutin          #+#    #+#             */
-/*   Updated: 2023/05/24 17:14:56 by bpleutin         ###   ########.fr       */
+/*   Updated: 2024/01/31 10:50:36 by bpleutin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,14 +123,17 @@ int	key_hook(int keycode, t_game *game)
 		g_direction = 3;
 		move_player(game, -1, 0, keycode);
 	}
-	if (keycode == S || keycode == DOWN)
+	if ((keycode == S || keycode == DOWN))
 		move_player(game, 0, 1, keycode);
 	if (keycode == D || keycode == RIGHT)
 	{
 		g_direction = 2;
 		move_player(game, 1, 0, keycode);
+		move_zoom(game);
 	}
-	if (game->end == 0)
+	if (game->end == 0 && (keycode == W || keycode == UP || keycode == A
+			|| keycode == LEFT || keycode == S || keycode == DOWN
+			|| keycode == D || keycode == RIGHT))
 		move_zoom(game);
 	return (0);
 }
