@@ -19,13 +19,27 @@
    </pre>
 3. Run the so_long program with a map file as an argument:
    <pre>
-   ./so_long maps/map.ber
+   ./so_long map.ber
    </pre>
-   Replace `maps/map.ber` with the path to the map file you want to use.
+   Replace `map.ber` with the path to the map file you want to use. <br>
+   Only small.ber and medium.ber are available in my repo right now, but you can create your own map, it is quite easy !
 
-## Example
+## Creating a map
+
+Here are the characters needed and their interpretation: <br>
+1 : Wall <br>
+0 : Floor <br>
+C : Collectible <br>
+Z : Enemy <br>
+P : Player (starting point)
+E : Exit <br>
+<br>
+The rules are simple. The map has to be closed (have walls all around it), have at least one player, but also one collectible and one exit, which both have to be accessible to the player. <br>
+If your map doesn't follow one of those rules, my program will deem it invalid. Have fun !
+
+## Preview
 <pre>
 $ ./so_long maps/small.ber
 </pre>
 
-
+<p align="center"> <img src="So_long.gif" alt="animated" /> </p>
